@@ -1,8 +1,15 @@
 /* See LICENSE file for copyright and license details. */
 
+/* constants */
+#define VEDITOR "dav"
+#define BROWSER "chromium"
+#define TORRENT "qbittorrent" 
+#define SCREENSHOT "screenshotnow"
+#define DISCORD "discord"
+
 /* appearance */
 static const unsigned int borderpx  = 5;        /* border pixel of windows */
-static const Gap default_gap        = {.isgap = 1, .realgap = 10, .gappx = 10};
+static const Gap default_gap        = {.isgap = 1, .realgap = 17, .gappx = 17};
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 1;       /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
@@ -16,7 +23,9 @@ static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
 
 // non-border
-static char normbordercolor[]       = "#444444";
+/* static char normbordercolor[]       = "#444444"; // default gray */
+static char normbordercolor[]       = "#2f2f2f"; // gray
+/* static char normbordercolor[]       = "#000000"; // black */
 
 // normal text
 static char normfgcolor[]           = "#bbbbbb";
@@ -98,12 +107,6 @@ static const Layout layouts[] = {
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 /* #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } } */
 #define SHCMD(cmd) { .v = (const char*[]){ "/usr/bin/dash", "-c", cmd, NULL } }
-#define WEB "dmenusite"
-#define VEDITOR "dav"
-#define BROWSER "chromium"
-#define TORRENT "qbittorrent" 
-#define SCREENSHOT "screenshotnow"
-#define DISCORD "discord"
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
@@ -143,12 +146,11 @@ static const Key keys[] = {
   { MODKEY,                       XK_w,      spawn,          {.v = (const char*[]){ BROWSER, NULL } } },
   { MODKEY,                       XK_m,    spawn,           {.v = (const char*[]){ "dmenusite" , NULL } } },
   { ALT,                          XK_l,    spawn,           {.v = (const char*[]){ "dmenucopy" , NULL } } },
-  /* { MODKEY,                       XK_m,      spawn,          SHCMD(WEB)}, */
   /* { MODKEY,              XK_d,    spawn,       {.v = (const char*[]){ VEDITOR, NULL } } }, */
   { MODKEY,                       XK_t,      spawn,          {.v = (const char*[]){ TORRENT, NULL } } },
   /* { ALT,                           XK_s,       spawn,       {.v = (const char*[]){ SCREENSHOT, NULL } } }, */
   { MODKEY,                       XK_d,      spawn,          {.v = (const char*[]){ DISCORD, NULL } } },
-  { ALT,                          XK_p,      spawn,          {.v = (const char*[]){ "st -e paru -Syu --skipreview --needed", NULL } } },
+  /* { ALT,                          XK_p,      spawn,          {.v = (const char*[]){ "st -e paru -Syu --skipreview --needed", NULL } } }, */
   { ALT,                          XK_p,      spawn,          SHCMD("st -e paru -Syu --skipreview --needed")},
   { MODKEY,                       XK_minus,  spawn,          SHCMD("pamixer -d 1")},
   { ALT,                          XK_minus,  spawn,          SHCMD("pamixer -d 3")},
