@@ -24,30 +24,37 @@ static const char col_cyan[]        = "#005577";
 
 // non-border
 /* static char normbordercolor[]       = "#444444"; // default gray */
-static char normbordercolor[]       = "#2f2f2f"; // gray
+/* static char normbordercolor[]       = "#2f2f2f"; // gray */
+static char normbordercolor[]       = "#222222"; // same as top border
 /* static char normbordercolor[]       = "#000000"; // black */
 
 // normal text
-static char normfgcolor[]           = "#bbbbbb";
+/* static char normfgcolor[]           = "#bbbbbb"; */
+/* static char normfgcolor[]           = "#d3d3d3"; */
+/* static char normfgcolor[]           = "#ccc0b2"; */
+static char normfgcolor[]           = "#dad2c8";
 
 // normal border
 static char normbgcolor[]           = "#222222";
 
 // selected window 
-static char selbordercolor[]        = "#9e886e"; // light brown
+static char selbordercolor[]        = "#988165"; // light brown
 /* static char selbordercolor[]        = "#00ffff"; // cyan */
 /* static char selbordercolor[]        = "#ffffff"; // white */
 /* static char selbordercolor[]        = "#5cf9cf"; // white */
 /* static char selbordercolor[]        = "#iff0000"; // red */
 
 // top border 
-static char selbgcolor[]            = "#846e54";
+/* static char selbgcolor[]            = "#846e54"; */
+static char selbgcolor[]            = "#988165"; // same as selected window
 /* static char selbgcolor[]            = "#004763"; */
 /* static char selbgcolor[]            = "#7a623c"; */
 
 // border text 
+static char selfgcolor[]            = "#222222"; // brown 
 /* static char selfgcolor[]            = "#eeeeee"; // white */
-static char selfgcolor[]            = "#ffffff";
+/* static char selfgcolor[]            = "#ffffff"; */
+/* static char selfgcolor[]            = "#d3d3d3"; */
 /* static char selfgcolor[]            = "#8d755a"; */
 
 static const char *colors[][3]      = {
