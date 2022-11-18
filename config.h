@@ -7,6 +7,9 @@
 #define SCREENSHOT "screenshotnow"
 #define DISCORD "discord"
 
+// include colors
+#include "/home/james/.local/share/theme/colors.h"
+
 /* appearance */
 static const unsigned int borderpx  = 5;        /* border pixel of windows */
 static const Gap default_gap        = {.isgap = 1, .realgap = 17, .gappx = 17};
@@ -16,43 +19,43 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = {"monospace:size=10","NotoColorEmoji:pixelsize=10:antialias=true:autohint=true"};
 static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+/* static const char col_gray1[]       = "#222222"; */
+/* static const char col_gray2[]       = "#444444"; */
+/* static const char col_gray3[]       = "#bbbbbb"; */
+/* static const char col_gray4[]       = "#eeeeee"; */
+/* static const char col_cyan[]        = "#005577"; */
 
 // non-border
-/* static char normbordercolor[]       = "#444444"; // default gray */
-/* static char normbordercolor[]       = "#2f2f2f"; // gray */
-static char normbordercolor[]       = "#222222"; // same as top border
-/* static char normbordercolor[]       = "#000000"; // black */
+/* static char normbordercolor[]       = "#444444"; */
+/* static char normbordercolor[]       = "#2f2f2f"; */
+/* static char normbordercolor[]       = "#222222"; */
+/* static char normbordercolor[]       = "#000000"; */
 
 // normal text
 /* static char normfgcolor[]           = "#bbbbbb"; */
 /* static char normfgcolor[]           = "#d3d3d3"; */
 /* static char normfgcolor[]           = "#ccc0b2"; */
-static char normfgcolor[]           = "#dad2c8";
+/* static char normfgcolor[]           = "#dad2c8"; */
 
 // normal border
-static char normbgcolor[]           = "#222222";
+/* static char normbgcolor[]           = "#222222"; */
 
 // selected window 
-static char selbordercolor[]        = "#988165"; // light brown
-/* static char selbordercolor[]        = "#00ffff"; // cyan */
-/* static char selbordercolor[]        = "#ffffff"; // white */
-/* static char selbordercolor[]        = "#5cf9cf"; // white */
-/* static char selbordercolor[]        = "#iff0000"; // red */
+/* static char selbordercolor[]        = "#988165"; */
+/* static char selbordercolor[]        = "#00ffff"; */
+/* static char selbordercolor[]        = "#ffffff"; */
+/* static char selbordercolor[]        = "#5cf9cf"; */
+/* static char selbordercolor[]        = "#iff0000" */
 
 // top border 
 /* static char selbgcolor[]            = "#846e54"; */
-static char selbgcolor[]            = "#988165"; // same as selected window
+/* static char selbgcolor[]            = "#988165"; // same as selected window */
 /* static char selbgcolor[]            = "#004763"; */
 /* static char selbgcolor[]            = "#7a623c"; */
 
 // border text 
-static char selfgcolor[]            = "#222222"; // brown 
-/* static char selfgcolor[]            = "#eeeeee"; // white */
+/* static char selfgcolor[]            = "#222222"; */ 
+/* static char selfgcolor[]            = "#eeeeee"; */
 /* static char selfgcolor[]            = "#ffffff"; */
 /* static char selfgcolor[]            = "#d3d3d3"; */
 /* static char selfgcolor[]            = "#8d755a"; */
@@ -60,7 +63,7 @@ static char selfgcolor[]            = "#222222"; // brown
 static const char *colors[][3]      = {
       /*               fg         bg         border   */
       [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
-          [SchemeSel]  = { selfgcolor, selbgcolor,  selbordercolor  },
+      [SchemeSel]  = { selfgcolor, selbgcolor,  selbordercolor  },
 };
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
@@ -118,12 +121,15 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 /* static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL }; */
-static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", selbgcolor, "-sf", col_gray4, NULL };
+/* static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", normbordercolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", normfgcolor, NULL }; */
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", selfgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
+
 static const char *termcmd[]  = { "st", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
   { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+  /* { MODKEY,                       XK_p,      spawn,          {.v = (const char*[]){ "dmenu_run", NULL } } }, */
   { MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
   /* { MODKEY,                       XK_f,      togglebar,      {0} }, */
   { MODKEY,                       XK_b,      togglebar,      {0} },
@@ -170,6 +176,7 @@ static const Key keys[] = {
   { MODKEY,                       XK_a,      spawn,          SHCMD("[ -z $( pgrep 'audacity' ) ] && ~/.local/bin/setmicvol ; ~/.local/bin/alias/auda")},
   { MODKEY,                       XK_r,      spawn,          SHCMD("remaps")},
   { MODKEY,                       XK_v,      spawn,          SHCMD("openvpn")},
+  { MODKEY,                       XK_c,      spawn,          SHCMD("~/.local/bin/colpick")},
   { MODKEY,                       XK_s,      spawn,          SHCMD(SCREENSHOT)},
   { MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = -5 } },
   { MODKEY|ShiftMask,             XK_minus,  setgaps,        {.i = +5 } },
