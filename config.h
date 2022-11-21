@@ -172,7 +172,7 @@ static const Key keys[] = {
   { MODKEY,                       XK_s,      spawn,          SHCMD("~/.local/bin/speaker-or-headphone")},
   { ALT,                          XK_m,      spawn,          SHCMD("pamixer -t")},
   { ALT,                          XK_j,      spawn,          SHCMD("/home/james/.local/bin/alias/schedule")},
-  { MODKEY,                       XK_o,      spawn,          SHCMD("[ -z $( pgrep 'obs' ) ] && ~/.local/bin/setmicvol ; ~/.local/bin/alias/obs-kill-picom || picom -b")},
+  { ALT,                          XK_0,      spawn,          SHCMD("[ -z $( pgrep 'obs' ) ] && ~/.local/bin/setmicvol ; ~/.local/bin/alias/obs-kill-picom || picom -b")},
   { MODKEY,                       XK_a,      spawn,          SHCMD("[ -z $( pgrep 'audacity' ) ] && ~/.local/bin/setmicvol ; ~/.local/bin/alias/auda")},
   { MODKEY,                       XK_r,      spawn,          SHCMD("remaps")},
   { MODKEY,                       XK_v,      spawn,          SHCMD("openvpn")},
