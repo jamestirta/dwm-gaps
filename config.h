@@ -10,6 +10,40 @@
 // include colors
 #include "/home/james/.local/share/theme/colors.h"
 
+/* uncomment and comment include file if not present */
+  /* /1* 8 normal colors *1/ */
+  /* [0] = "#000000", /1* black   *1/ */
+  /* [1] = "#80623F", /1* red     *1/ */
+  /* [2] = "#8A7454", /1* green   *1/ */
+  /* [3] = "#8A7C6F", /1* yellow  *1/ */
+  /* [4] = "#9E8C72", /1* blue    *1/ */
+  /* [5] = "#AC9E8A", /1* magenta *1/ */
+  /* [6] = "#E2BEAE", /1* cyan    *1/ */
+  /* [7] = "#e9e2df", /1* white   *1/ */
+
+  /* /1* 8 bright colors *1/ */
+  /* [8]  = "#a39e9c",  /1* black   *1/ */
+  /* [9]  = "#80623F",  /1* red     *1/ */
+  /* [10] = "#8A7454", /1* green   *1/ */
+  /* [11] = "#8A7C6F", /1* yellow  *1/ */
+  /* [12] = "#9E8C72", /1* blue    *1/ */
+  /* [13] = "#AC9E8A", /1* magenta *1/ */
+  /* [14] = "#E2BEAE", /1* cyan    *1/ */
+  /* [15] = "#e9e2df", /1* white   *1/ */
+
+  /* /1* special colors *1/ */
+  /* [256] = "#000000", /1* background *1/ */
+  /* [257] = "#e9e2df", /1* foreground *1/ */
+  /* [258] = "#e9e2df",     /1* cursor *1/ */
+/* }; */
+
+/* /1* Default colors (colorname index) */
+ /* * foreground, background, cursor *1/ */
+ /* unsigned int defaultbg = 0; */
+ /* unsigned int defaultfg = 257; */
+ /* unsigned int defaultcs = 258; */
+ /* unsigned int defaultrcs= 258; */
+
 /* appearance */
 static const unsigned int borderpx  = 5;        /* border pixel of windows */
 static const Gap default_gap        = {.isgap = 1, .realgap = 17, .gappx = 17};
